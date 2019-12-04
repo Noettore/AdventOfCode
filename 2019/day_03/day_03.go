@@ -34,9 +34,10 @@ func readValues(fileName string) [][]string {
 	return values
 }
 
-func wireTrace(cableMoves []string) mapset.Set {
+func wireTrace(cableMoves []string) ([]point, mapset.Set) {
 	currentPosition := point{0, 0}
-	cablePath := mapset.NewSet()
+	cablePath := make([]point, 0)
+	cableSet := mapset.NewSet()
 	for _, step := range cableMoves {
 		direction := step[0]
 		distance, err := strconv.Atoi(string(step[1:]))
@@ -56,33 +57,64 @@ func wireTrace(cableMoves []string) mapset.Set {
 			default:
 				log.Fatalf("Cannot decode step direction: %c\n", direction)
 			}
-			cablePath.Add(currentPosition)
+			cablePath = append(cablePath, currentPosition)
+			cableSet.Add(currentPosition)
 		}
 	}
-	return cablePath
+	return cablePath, cableSet
 }
 
 func (p1 point) manhattanDistance(p2 point) int {
 	return int(math.Abs(float64(p1.x-p2.x)) + math.Abs(float64(p1.y-p2.y)))
 }
 
-func main() {
-	cablesMoves := readValues("./input")
-	cable1Path := wireTrace(cablesMoves[0])
-	cable2Path := wireTrace(cablesMoves[1])
-
-	intersectionPoint := cable1Path.Intersect(cable2Path)
-	if intersectionPoint.Cardinality() == 0 {
-		log.Fatalln("No intersection point")
+func reachIntersect(cablePath []point, intersect point) int {
+	for i, pos := range cablePath {
+		if pos.x == intersect.x && pos.y == intersect.y {
+			return i + 1
+		}
 	}
+	return -1
+}
+
+func shortestDistance(intersectionPoints mapset.Set) int {
 	origin := point{0, 0}
 	bestDistance := 0
-	for p := range intersectionPoint.Iterator().C {
+	for p := range intersectionPoints.Iterator().C {
 		dist := origin.manhattanDistance(p.(point))
 		if bestDistance == 0 || dist < bestDistance {
 			bestDistance = dist
 		}
 	}
+	return bestDistance
+}
 
-	fmt.Printf("Part 1: %d\n", bestDistance)
+func fewestSteps(cablesPath [][]point, intersectionPoints mapset.Set) int {
+	bestSteps := 0
+	for p := range intersectionPoints.Iterator().C {
+		steps := reachIntersect(cablesPath[0], p.(point)) + reachIntersect(cablesPath[1], p.(point))
+		if bestSteps == 0 || steps < bestSteps {
+			bestSteps = steps
+		}
+	}
+	return bestSteps
+}
+
+func main() {
+	cablesMoves := readValues("./input")
+	cable1Path, cable1Set := wireTrace(cablesMoves[0])
+	cable2Path, cable2Set := wireTrace(cablesMoves[1])
+
+	intersectionPoints := cable1Set.Intersect(cable2Set)
+	if intersectionPoints.Cardinality() == 0 {
+		log.Fatalln("No intersection point")
+	}
+
+	// Part 1
+	dist := shortestDistance(intersectionPoints)
+	fmt.Printf("Part 1: %d\n", dist)
+
+	//Part 2
+	steps := fewestSteps([][]point{cable1Path, cable2Path}, intersectionPoints)
+	fmt.Printf("Part 2: %d\n", steps)
 }
