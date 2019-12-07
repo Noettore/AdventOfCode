@@ -18,8 +18,19 @@ func intToSlice(n int) []int {
 }
 
 func twoEqualAdjacentDigits(pwd []int) bool {
-	for i, digit := range pwd {
-		if i < len(pwd)-1 && digit == pwd[i+1] {
+	l := len(pwd)
+	for i := 0; i < l-1; i++ {
+		if pwd[i] == pwd[i+1] {
+			return true
+		}
+	}
+	return false
+}
+
+func twoExclusiveAdjacentDigits(pwd []int) bool {
+	l := len(pwd)
+	for i := 0; i < l-1; i++ {
+		if pwd[i] == pwd[i+1] && (i == 0 || pwd[i] != pwd[i-1]) && (i == l-2 || pwd[i] != pwd[i+2]) {
 			return true
 		}
 	}
@@ -37,12 +48,20 @@ func increasingDigits(pwd []int) bool {
 
 func main() {
 	// Part 1:
-	count := 0
+	count1, count2 := 0, 0
 	for i := min; i < max; i++ {
 		pwd := intToSlice(i)
-		if twoEqualAdjacentDigits(pwd) && increasingDigits(pwd) {
-			count++
+		two := twoEqualAdjacentDigits(pwd)
+		onlyTwo := twoExclusiveAdjacentDigits(pwd)
+		if increasingDigits(pwd) {
+			if two {
+				count1++
+			}
+			if onlyTwo {
+				count2++
+			}
 		}
 	}
-	fmt.Printf("Part 1: %d\n", count)
+	fmt.Printf("Part 1: %d\n", count1)
+	fmt.Printf("Part 2: %d\n", count2)
 }
