@@ -12,7 +12,7 @@ def read_input(input_path: str) -> list:
         return entries
 
 def part1(entries: list) -> int:
-    """part1 solver take a set of int and return an int"""
+    """part1 solver take a list of int and return an int"""
     for x in entries:
         complement = 2020 - x
         if complement in entries:
@@ -20,7 +20,7 @@ def part1(entries: list) -> int:
     return None
 
 def part2(entries: list) -> int:
-    """part2 solver take a set of int and return an int"""
+    """part2 solver take a list of int and return an int"""
     for x, i in enumerate(entries):
         for y in entries[i:]:
             complement = 2020 - x - y
