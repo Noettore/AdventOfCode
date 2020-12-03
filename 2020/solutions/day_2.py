@@ -1,4 +1,4 @@
-"""AOC Day 1"""
+"""AOC Day 2"""
 
 import pathlib
 import time
