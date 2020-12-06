@@ -12,7 +12,11 @@
 *.out
 
 # Python cache directory
+*.pyc
 __pycache__
+
+# Pytest
+pytest.ini
 .pytest_cache
 
 #VSCode
