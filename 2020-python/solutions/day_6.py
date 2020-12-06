@@ -49,11 +49,15 @@ def part2(entries: list) -> int:
                 count += 1
     return count
 
-def test():
+def test_input():
     """pytest testing function"""
     entries = extract(TEST_INPUT)
     assert part1(entries) == 11
     assert part2(entries) == 6
+
+def test_bench(benchmark):
+    """pytest-benchmark function"""
+    benchmark(main)
 
 def main():
     """main function"""
