@@ -1,6 +1,8 @@
 # Advent of Code
 
-![GitHub](https://img.shields.io/github/license/Noettore/AdventOfCode)![GitHub last commit](https://img.shields.io/github/last-commit/Noettore/AdventOfCode)![Python](https://github.com/Noettore/AdventOfCode/workflows/Python/badge.svg)
+[![GitHub](https://img.shields.io/github/license/Noettore/AdventOfCode)](./LICENSE)
+[![GitHub last commit](https://img.shields.io/github/last-commit/Noettore/AdventOfCode)](https://github.com/Noettore/AdventOfCode/commit/master)
+[![Python](https://github.com/Noettore/AdventOfCode/workflows/Python/badge.svg)](https://github.com/Noettore/AdventOfCode/actions?query=workflow%3APython)
 
 ## My attempt at solving Advent Of Code challenges - https://adventofcode.com
 
