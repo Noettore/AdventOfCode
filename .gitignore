@@ -16,7 +16,6 @@
 __pycache__
 
 # Pytest
-pytest.ini
 .pytest_cache
 
 #VSCode
