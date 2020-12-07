@@ -75,18 +75,16 @@ def part2(graph: dict, color: str) -> int:
         return count
     return search_count(graph, color)-1
 
-def test_input():
+def test_input_day_7():
     """pytest testing function"""
     graph, reverse_graph = extract(TEST_INPUT)
     assert part1(reverse_graph, "shiny gold") == 4
     assert part2(graph, "shiny gold") == 32
 
-def test_input_2():
-    """pytest testing function"""
     graph, _ = extract(TEST_INPUT_2)
     assert part2(graph, "shiny gold") == 126
 
-def test_bench(benchmark):
+def test_bench_day_7(benchmark):
     """pytest-benchmark function"""
     benchmark(main)
 
