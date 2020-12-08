@@ -46,12 +46,12 @@ def part2(entries: str) -> int:
             houses[(pos_x_robot, pos_y_robot)] = houses.get((pos_x_robot, pos_y_robot), 0) + 1
     return len(houses)
 
-def test_input_day_2():
+def test_input_day_3():
     """pytest testing function"""
     assert part1(TEST_INPUT) == 2
     assert part2(TEST_INPUT) == 11
 
-def test_bench_day_2(benchmark):
+def test_bench_day_3(benchmark):
     """pytest-benchmark function"""
     benchmark(main)
 
