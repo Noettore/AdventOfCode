@@ -48,16 +48,17 @@ def part1(entries: list, preamble_length: int) -> int:
 
 def part2(entries: list, invalid_number: int) -> int:
     """part2 solver"""
-    for index, _ in enumerate(entries):
-        test_set = [entries[index]]
-        test_set_len = 1
-        while test_set_len < len(entries) - index:
-            test_set.append(entries[index+test_set_len])
-            test_set_len += 1
-
-            if sum(test_set) == invalid_number:
-                return min(test_set) + max(test_set)
-    return None
+    left, right = 0, 1
+    interval_sum = entries[left] + entries[right]
+    while True:
+        if interval_sum < invalid_number:
+            right += 1
+            interval_sum += entries[right]
+        elif interval_sum > invalid_number:
+            interval_sum -= entries[left]
+            left += 1
+        else:
+            return min(entries[left:right+1]) + max(entries[left:right+1])
 
 def test_input_day_9():
     """pytest testing function"""
