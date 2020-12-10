@@ -10,7 +10,7 @@
 
 | Day                                            | Execution time                                 |
 | ---------------------------------------------- | ---------------------------------------------- |
-| [Day 1](https://adventofcode.com/2020/day/1)   | [0.04ms](./2020-python/solutions/day_1.py)     |
+| [Day 1](https://adventofcode.com/2020/day/1)   | [0.040ms](./2020-python/solutions/day_1.py)    |
 | [Day 2](https://adventofcode.com/2020/day/2)   | [0.702ms](./2020-python/solutions/day_2.py)    |
 | [Day 3](https://adventofcode.com/2020/day/3)   | [0.343ms](./2020-python/solutions/day_3.py)    |
 | [Day 4](https://adventofcode.com/2020/day/4)   | [21.806ms](./2020-python/solutions/day_4.py)   |
@@ -20,5 +20,3 @@
 | [Day 8](https://adventofcode.com/2020/day/8)   | [6.313ms](./2020-python/solutions/day_8.py)    |
 | [Day 9](https://adventofcode.com/2020/day/9)   | [7.220ms](./2020-python/solutions/day_9.py)    |
 | [Day 10](https://adventofcode.com/2020/day/10) | [139.110ms](./2020-python/solutions/day_10.py) |
-
-
