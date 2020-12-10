@@ -58,7 +58,8 @@ def part2(entries: list, invalid_number: int) -> int:
             interval_sum -= entries[left]
             left += 1
         else:
-            return min(entries[left:right+1]) + max(entries[left:right+1])
+            numbers = sorted(entries[left:right+1])
+            return numbers[0] + numbers[-1]
 
 def test_input_day_9():
     """pytest testing function"""
