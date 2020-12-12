@@ -22,7 +22,7 @@ def part1(secret: str) -> int:
             return number
         number += 1
 
-def part2(secret: list) -> int:
+def part2(secret: str) -> int:
     """part2 solver"""
     number = 1
     while True:
