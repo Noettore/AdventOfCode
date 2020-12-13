@@ -22,3 +22,4 @@
 | [Day 10](https://adventofcode.com/2020/day/10) | [139.110us](./2020-python/solutions/day_10.py) | [98.594µs](./2020-python/solutions/day_10.py)  |
 | [Day 11](https://adventofcode.com/2020/day/11) | [2.879s](./2020-python/solutions/day_11.py)    | [419.447ms](./2020-python/solutions/day_11.py) |
 | [Day 12](https://adventofcode.com/2020/day/12) | [746.181µs](./2020-python/solutions/day_12.py) | [211.216µs](./2020-python/solutions/day_12.py) |
+| [Day 13](https://adventofcode.com/2020/day/13) | [122.107µs](./2020-python/solutions/day_13.py) | [100.671µs](./2020-python/solutions/day_13.py) |
