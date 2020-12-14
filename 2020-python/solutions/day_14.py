@@ -58,16 +58,16 @@ def generate_addresses(addr: str, mask: str) -> list:
 def part1(entries: dict) -> int:
     """part1 solver"""
     mem = dict()
-    mask_keep0s = 0
-    mask_keep1s = 0
+    mask_set0s = 0
+    mask_set1s = 0
     for entry in entries:
         if entry['type'] == 'mask':
             mask = entry['value']
-            mask_keep0s = int(mask.replace('X', '1'), 2)
-            mask_keep1s = int(mask.replace('X', '0'), 2)
+            mask_set0s = int(mask.replace('X', '1'), 2)
+            mask_set1s = int(mask.replace('X', '0'), 2)
         else:
             addr, value = entry['value']
-            mem[addr] = (int(value) & mask_keep0s) | mask_keep1s
+            mem[addr] = (int(value) & mask_set0s) | mask_set1s
     return sum(mem.values())
 
 def part2(entries: tuple) -> int:
