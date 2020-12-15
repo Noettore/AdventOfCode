@@ -13,42 +13,35 @@ def read_input(input_path: str) -> str:
 
 def extract(input_data: str) -> list:
     """take input data and return the appropriate data structure"""
-    entries = input_data.split(',')
+    entries = list(map(int, input_data.split(',')))
     return entries
+
+def calculate_last_spoken(numbers: list, turns: int) -> int:
+    """calculate the last spoken number at specified turn"""
+    spoken = [0]*turns
+    last_spoken = -1
+
+    for turn, number in enumerate(numbers, 1):
+        spoken[number] = turn
+        last_spoken = number
+
+    for prev_turn in range(len(numbers), turns):
+        if spoken[last_spoken] != 0:
+            current_spoken = prev_turn - spoken[last_spoken]
+        else:
+            current_spoken = 0
+        spoken[last_spoken] = prev_turn
+        last_spoken = current_spoken
+
+    return last_spoken
 
 def part1(entries: dict) -> int:
     """part1 solver"""
-    spoken = dict()
-    last_spoken = '-1'
-    for turn, number in enumerate(entries, 1):
-        spoken[number] = [turn]
-        last_spoken = number
-    for i in range(len(entries)+1, 2020+1):
-        if len(spoken.get(last_spoken, [])) < 2:
-            spoken.setdefault('0', []).append(i)
-            last_spoken = '0'
-        else:
-            number = str(int(spoken[last_spoken][-1]) - int(spoken[last_spoken][-2]))
-            spoken.setdefault(number, []).append(i)
-            last_spoken = number
-    return int(last_spoken)
+    return calculate_last_spoken(entries, 2020)
 
 def part2(entries: tuple) -> int:
     """part2 solver"""
-    spoken = dict()
-    last_spoken = '-1'
-    for turn, number in enumerate(entries, 1):
-        spoken[number] = [turn]
-        last_spoken = number
-    for i in range(len(entries)+1, 30000000+1):
-        if len(spoken.get(last_spoken, [])) < 2:
-            spoken.setdefault('0', []).append(i)
-            last_spoken = '0'
-        else:
-            number = str(int(spoken[last_spoken][-1]) - int(spoken[last_spoken][-2]))
-            spoken.setdefault(number, []).append(i)
-            last_spoken = number
-    return int(last_spoken)
+    return calculate_last_spoken(entries, 30000000)
 
 def test_input_day_15():
     """pytest testing function"""
