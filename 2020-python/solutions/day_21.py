@@ -9,8 +9,6 @@ trh fvjkl sbzzf mxmxvkd (contains dairy)
 sqjhc fvjkl (contains soy)
 sqjhc mxmxvkd sbzzf (contains fish)"""
 
-TOP, RIGHT, BOTTOM, LEFT = 0, 1, 2, 3
-
 def read_input(input_path: str) -> str:
     """take input file path and return a str with the file's content"""
     with open(input_path, 'r') as input_file:
