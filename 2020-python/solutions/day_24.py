@@ -2,9 +2,7 @@
 
 import pathlib
 import time
-import cProfile
 import re
-import operator
 import itertools
 
 TEST_INPUT = """sesenwnenenewseeswwswswwnenewsewsw
