@@ -2,6 +2,7 @@
 
 import pathlib
 import time
+import cProfile
 import re
 import operator
 import itertools
@@ -70,16 +71,30 @@ def find_dst_tile(steps: list) -> tuple:
 
 def count_black_neighbors(tiles: set, x_tile: int, y_tile: int) -> int:
     """return the number of black adjacent tile of a given one"""
-    return sum((x_tile+d_x, y_tile+d_y) in tiles for d_x, d_y in STEPMAP.values())
+    black_neighbors = 0
+    for d_x, d_y in STEPMAP.values():
+        if (x_tile+d_x, y_tile+d_y) in tiles:
+            black_neighbors += 1
+    return black_neighbors
 
 def calculate_floor_bounds(tiles: set) -> tuple:
     """return the floor boundaries"""
-    min_x = min(map(operator.itemgetter(0), tiles)) - 1
-    min_y = min(map(operator.itemgetter(1), tiles)) - 1
-    max_x = max(map(operator.itemgetter(0), tiles)) + 2
-    max_y = max(map(operator.itemgetter(1), tiles)) + 2
+    min_x = float('Inf')
+    max_x = float('-Inf')
+    min_y = float('Inf')
+    max_y = float('-Inf')
 
-    return range(min_x, max_x), range(min_y, max_y)
+    for x_tile, y_tile in tiles:
+        if x_tile < min_x:
+            min_x = x_tile
+        elif x_tile > max_x:
+            max_x = x_tile
+        if y_tile < min_y:
+            min_y = y_tile
+        elif y_tile > max_y:
+            max_y = y_tile
+
+    return range(min_x-1, max_x+2), range(min_y-1, max_y+2)
 
 def flip_tiles(tiles: set) -> set:
     """calculate the new daily floor"""
