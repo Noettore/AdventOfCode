@@ -19,7 +19,7 @@
 | [Day 7](https://adventofcode.com/2020/day/7)   | [1.689ms](./2020-python/solutions/day_07.py)   | [1.565ms](./2020-python/solutions/day_07.py)   |
 | [Day 8](https://adventofcode.com/2020/day/8)   | [6.313ms](./2020-python/solutions/day_08.py)   | [794.417µs](./2020-python/solutions/day_08.py) |
 | [Day 9](https://adventofcode.com/2020/day/9)   | [7.220ms](./2020-python/solutions/day_09.py)   | [4.783ms](./2020-python/solutions/day_09.py)   |
-| [Day 10](https://adventofcode.com/2020/day/10) | [139.110us](./2020-python/solutions/day_10.py) | [98.594µs](./2020-python/solutions/day_10.py)  |
+| [Day 10](https://adventofcode.com/2020/day/10) | [139.110µs](./2020-python/solutions/day_10.py) | [98.594µs](./2020-python/solutions/day_10.py)  |
 | [Day 11](https://adventofcode.com/2020/day/11) | [2.879s](./2020-python/solutions/day_11.py)    | [419.447ms](./2020-python/solutions/day_11.py) |
 | [Day 12](https://adventofcode.com/2020/day/12) | [746.181µs](./2020-python/solutions/day_12.py) | [211.216µs](./2020-python/solutions/day_12.py) |
 | [Day 13](https://adventofcode.com/2020/day/13) | [122.107µs](./2020-python/solutions/day_13.py) | [100.671µs](./2020-python/solutions/day_13.py) |
@@ -29,7 +29,7 @@
 | [Day 17](https://adventofcode.com/2020/day/17) | [743.804ms](./2020-python/solutions/day_17.py) | [836.255ms](./2020-python/solutions/day_17.py) |
 | [Day 18](https://adventofcode.com/2020/day/18) | [10.263ms](./2020-python/solutions/day_18.py)  | [2.053ms](./2020-python/solutions/day_18.py)   |
 | [Day 19](https://adventofcode.com/2020/day/19) | [145.980ms](./2020-python/solutions/day_19.py) | [259.030ms](./2020-python/solutions/day_19.py) |
-| [Day 20](https://adventofcode.com/2020/day/19) |                                                |                                                |
+| [Day 20](https://adventofcode.com/2020/day/19) | [513.955ms](./2020-python/solutions/day_20.py) | [316.973ms](./2020-python/solutions/day_20.py) |
 | [Day 21](https://adventofcode.com/2020/day/21) | [2.177ms](./2020-python/solutions/day_21.py)   | [1.578ms](./2020-python/solutions/day_21.py)   |
 | [Day 22](https://adventofcode.com/2020/day/22) | [1.516s](./2020-python/solutions/day_22.py)    | [1.353s](./2020-python/solutions/day_22.py)    |
 | [Day 23](https://adventofcode.com/2020/day/23) | [14.754s](./2020-python/solutions/day_23.py)   | [3.572s](./2020-python/solutions/day_23.py)    |
