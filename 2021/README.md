@@ -8,4 +8,4 @@
 
 | Day                                            | Execution time with CPython 3.8.12             | Execution time with PyPy 7.3.3 Python 3.6.12   |
 | ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
-| [Day 1](https://adventofcode.com/2021/day/1)   | [1.3404 ms](./2021/solutions/day_01.py)        | [244.3283 us](./2021/solutions/day_01.py)      |
+| [Day 1](https://adventofcode.com/2021/day/1)   | [1.3404 ms](./solutions/day_01.py)        | [244.3283 us](./solutions/day_01.py)      |
