@@ -47,7 +47,7 @@ def common_bit(lines: list, column_number: int) -> int:
         bits = list(map(int, line))
         if bits[column_number] == 0:
             cb -= 1
-        elif cb == 1:
+        elif bits[column_number] == 1:
             cb += 1
     return cb
 
