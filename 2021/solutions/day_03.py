@@ -25,26 +25,15 @@ def read_input(input_path: str) -> str:
 
 def extract(input_data: str) -> list:
     """take input data and return the appropriate data structure"""
-    return input_data.split('\n')
-
-def common_bits(lines: list) -> list:
-    """common_bits take a list of strings representing binary numbers and return a list of int one per digit. Each int can be 0, > 0 or < 0 if the number of 1s and 0s in that column are equal, more 1s or more 0s"""
-    col_num = len(lines[0])
-    columns = [0]*col_num
-    for line in lines:
-        bits = list(map(int, line))
-        for i, b in enumerate(bits):
-            if b == 0:
-                columns[i] -= 1
-            elif b == 1:
-                columns[i] += 1
-    return columns
+    lines = input_data.split('\n')
+    for i, line in enumerate(lines):
+        lines[i] = list(map(int, line))
+    return lines
 
 def common_bit(lines: list, column_number: int) -> int:
-    """common_bits take a list of strings representing binary numbers and a column number and return an int that can be 0, > 0 or < 0 if the number of 1s and 0s in that column are equal, more 1s or more 0s"""
+    """common_bit take a list of strings representing binary numbers and a column number and return an int that can be 0, > 0 or < 0 if the number of 1s and 0s in that column are equal, more 1s or more 0s"""
     cb = 0
-    for line in lines:
-        bits = list(map(int, line))
+    for bits in lines:
         if bits[column_number] == 0:
             cb -= 1
         elif bits[column_number] == 1:
@@ -55,13 +44,13 @@ def part1(entries: list) -> int:
     """part1 solver take the entries and return the part1 solution"""
     gamma_rate = ''
     epsilon_rate = ''
-    columns = common_bits(entries)
 
-    for common_bit in columns:
-        if common_bit > 0:
+    for i in range(len(entries[0])):
+        cb = common_bit(entries, i)
+        if cb > 0:
             gamma_rate += '1'
             epsilon_rate += '0'
-        elif common_bit < 0:
+        elif cb < 0:
             gamma_rate += '0'
             epsilon_rate += '1'
     
@@ -78,13 +67,13 @@ def part2(entries: list) -> int:
         cb = common_bit(nums, i)
         new_nums = list()
         for num in nums:
-            if cb >= 0 and num[i] == '1':
+            if cb >= 0 and num[i] == 1:
                 new_nums.append(num)
-            elif cb < 0 and num[i] == '0':
+            elif cb < 0 and num[i] == 0:
                 new_nums.append(num)
         nums = new_nums.copy()
         i += 1
-    og_rating = nums[0]
+    og_rating = ''.join(map(str,nums[0]))
 
     nums = entries.copy()
     i = 0
@@ -92,13 +81,13 @@ def part2(entries: list) -> int:
         cb = common_bit(nums, i)
         new_nums = list()
         for num in nums:
-            if cb >= 0 and num[i] == '0':
+            if cb >= 0 and num[i] == 0:
                 new_nums.append(num)
-            elif cb < 0 and num[i] == '1':
+            elif cb < 0 and num[i] == 1:
                 new_nums.append(num)
         nums = new_nums.copy()
         i += 1
-    co2s_rating = nums[0]
+    co2s_rating = ''.join(map(str,nums[0]))
 
     return int(og_rating, 2)*int(co2s_rating, 2)
 
