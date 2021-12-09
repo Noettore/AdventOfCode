@@ -16,3 +16,4 @@
 | [Day 6](https://adventofcode.com/2021/day/6)   | [1.1949 ms](./solutions/day_06.py)             | [257.7554 us](./solutions/day_06.py)           |
 | [Day 7](https://adventofcode.com/2021/day/7)   | [863.2802 us](./solutions/day_07.py)           | [426.8359 us](./solutions/day_07.py)           |
 | [Day 8](https://adventofcode.com/2021/day/8)   | [4.3794 ms](./solutions/day_08.py)             | [3.6873 ms](./solutions/day_08.py)             |
+| [Day 9](https://adventofcode.com/2021/day/9)   | [71.2361 ms](./solutions/day_09.py)            | [17.8283 ms](./solutions/day_09.py)            |
