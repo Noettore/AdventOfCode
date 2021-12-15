@@ -66,7 +66,7 @@ def dijkstra(grid: list) -> int:
 
 def part1(grid: list) -> int:
     """part1 solver take the entries and return the part1 solution"""
-    return dijkstra(grid)[0]
+    return dijkstra(grid)
 
 def part2(grid: list) -> int:
     """part2 solver take the entries and return the part2 solution"""
@@ -83,7 +83,7 @@ def part2(grid: list) -> int:
             row = [(x + 1) if x < 9 else 1 for x in row]
             grid.append(row)
 
-    return dijkstra(grid)[0]
+    return dijkstra(grid)
 
 def test_input_day_15():
     """pytest testing function"""
